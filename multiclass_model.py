@@ -7,18 +7,19 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Input
 
 def define_dense_model_single_layer(input_length, activation_f='sigmoid', output_length=1):
-        model = keras.Sequential([layers.input(shape=(input_length,)),
-                              layers.Dense(output_length,activation=activation_f)])
+    model = Sequential([
+        Dense(output_length, activation=activation_f, input_shape=(input_length,))
+    ])
     return model
 
 def define_dense_model_with_hidden_layer(input_length, 
                                          activation_func_array=['relu','sigmoid'],
                                          hidden_layer_size=10,
                                          output_length=1):
-    model = keras.Sequential([Input(shape=(input_length,)),
-                              layers.Dense(hidden_layer_size, activation=activation_func_array[0]),
-                              layers.Dense(output_length, activation=activation_func_array[1])
-                              ])
+    model = Sequential([
+        Dense(hidden_layer_size, activation=activation_func_array[0], input_shape=(input_length,)),
+        Dense(output_length, activation=activation_func_array[1])
+    ])
     return model
 
 
