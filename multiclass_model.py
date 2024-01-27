@@ -2,6 +2,7 @@ from tensorflow.keras.datasets import mnist
 from tensorflow import keras
 from tensorflow.keras import layers
 import tensorflow as tf
+from tensorflow.keras.layers import Input
 
 def define_dense_model_single_layer(input_length, activation_f='sigmoid', output_length=1):
     """Define a dense model with a single layer with the following parameters:
@@ -23,10 +24,11 @@ def define_dense_model_with_hidden_layer(input_length,
     hidden_layer_size: the number of neurons in the hidden layer
     output_length: the number of outputs (number of neurons in the output layer)"""
 
-    model = keras.Sequential([layers.input(shape=(input_length,)),
-                              layers.Dense(hidden_layer_size,acivation= activation_func_array[0]),
-                              layers.Dense(output_length,activation=activation_func_array[1])
+    model = keras.Sequential([Input(shape=(input_length,)),
+                              layers.Dense(hidden_layer_size, activation=activation_func_array[0]),
+                              layers.Dense(output_length, activation=activation_func_array[1])
                               ])
+
     return model
 
 
