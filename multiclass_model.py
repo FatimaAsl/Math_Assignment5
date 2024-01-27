@@ -31,7 +31,7 @@ def get_mnist_data():
     return (x_train, y_train), (x_test, y_test)
 
 def fit_mnist_model(x_train, y_train, model, epochs=2, batch_size=2):
-    model.compile(optimizer='adam',loss='catagorical_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     model.fit(x_train,y_train,epochs=epochs,batch_size=batch_size)
     return model
   
