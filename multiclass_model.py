@@ -8,7 +8,7 @@ def define_dense_model_single_layer(input_length, activation_f='sigmoid', output
     input_length: the number of inputs
     activation_f: the activation function
     output_length: the number of outputs (number of neurons)"""
-    model = keras.Sequential([layers.input(shape=(input_length)),
+    model = keras.Sequential([layers.input(shape=(input_length,)),
                               layers.Dense(output_length,activation=activation_f)
                               ])
     return model
